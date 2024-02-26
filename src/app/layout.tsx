@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { twMerge } from 'tailwind-merge'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,8 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={twMerge(inter.className, 'bg-zinc-900')}>
-        {children}
+      <body className={twMerge(inter.className)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -60,22 +60,14 @@ const data = [
 
 export function OverviewChart() {
   return (
-    <EnterAnimatedWrapper>
-      <Card>
+    <EnterAnimatedWrapper className="col-span-3 row-span-3">
+      <Card className="flex h-full flex-col">
         <CardHeader>
           <CardTitle>Overview customer</CardTitle>
         </CardHeader>
-        <CardContent>
-          <ResponsiveContainer width="100%" height="100%" minHeight={300}>
-            <AreaChart
-              data={data}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
+        <CardContent className="h-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={data} className="h-full">
               <defs>
                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#4c1d95" stopOpacity={0.8} />
